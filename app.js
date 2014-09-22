@@ -2,9 +2,7 @@
 // Change these to your server's url (and port if not 80) and the site you wish to use it on.
 //
 var SERVERURL = "10.211.55.11";
-var SITE = "rest";
-var ADMIN_USER_NAME = "admin";
-var ADMIN_PW = "admin";
+var SITE = "rest"; 
 
 //Loading of Module Dependencies
 var XMLWriter = require('xml-writer');
@@ -44,8 +42,8 @@ app.get('/', function(req,res) {
 		// decide to do it with. Here I'm using a module called xml writer which simplifies the process.
 		// To see what xml you need to build for each of the different calls, see the documentation.
 		var reqxml = new XMLWriter();
-		reqxml.startElement('tsRequest').startElement('credentials').writeAttribute('name', ADMIN_USER_NAME)
-			.writeAttribute('password', ADMIN_PW).startElement('site').writeAttribute('contentUrl', '');
+		reqxml.startElement('tsRequest').startElement('credentials').writeAttribute('name', 'admin')
+			.writeAttribute('password', 'admin').startElement('site').writeAttribute('contentUrl', '');
 		request.post( 
 			{
 				url: 'http://' + SERVERURL + '/api/2.0/auth/signin',
